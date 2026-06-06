@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co-Operator</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="icon" type="image/png" href="images/1769624535150.png">
+</head>
+<body>
+    <header>
+        <div class="header-brand">
+            <img src="images/1769624535150.png" alt="Co Operator logo" class="brand-logo">
+            <div>
+                <h1 id="myH1">Welcome To Co Operator</h1>
+                <p class="brand-tagline no-cursor">Your writing partner for creative stories.</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button id="settingsIconBtn" class="icon-btn" title="Settings">
+                <span>⚙️</span>
+            </button>
+            <div class="profile-box no-cursor">
+                <img id="profileAvatar" src="https://api.dicebear.com/6.x/adventurer/svg?seed=guest" alt="Profile avatar" class="profile-avatar">
+                <span id="profileName">Guest</span>
+            </div>
+        </div>
+    </header>
+    <!-- Landing Page - Sign In Only -->
+    <div id="landingPage">
+        <main id="landingMain">
+            <section id="welcome">
+                <h1>Join Co Operator</h1>
+                <p>Discover captivating stories and unleash your creativity in our exclusive writing community.</p>
+                <div class="features">
+                    <div class="feature">
+                        <h3>📖 Read Stories</h3>
+                        <p>Explore a collection of engaging narratives crafted by talented writers. Discover adventure tales, heartwarming stories, and imaginative worlds that will transport you to new realms of creativity and wonder.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>✍️ Write Stories</h3>
+                        <p>Create and share your own tales with our user-friendly writing tools. Whether you're a beginner or experienced storyteller, express your imagination and connect with readers worldwide.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🎨 Customize</h3>
+                        <p>Personalize your writing experience with customizable fonts, colors, and styles. Make your creative space uniquely yours while maintaining focus on your storytelling craft.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="landingSignIn">
+                <div class="signin-decoration">
+                    <h2>🚀 Sign In to Get Started</h2>
+                    <p class="signin-subtitle">Join our creative community and start your storytelling journey!</p>
+                </div>
+                
+                <div class="signin-benefits">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">📚</span>
+                        <span class="benefit-text">Access exclusive stories</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✍️</span>
+                        <span class="benefit-text">Create and share your tales</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🎨</span>
+                        <span class="benefit-text">Customize your writing experience</span>
+                    </div>
+                </div>
+                
+                <div class="signin-form-container">
+                    <p class="age-notice">✨ Please note: You must be at least 10 years old to create an account and access our services.</p>
+                    
+                    <div class="social-login">
+                        <h3>Quick Sign In</h3>
+                        <p>Sign in with your preferred account:</p>
+                        <div class="social-buttons">
+                            <button class="social-btn google-btn" id="googleSignIn">
+                                <span class="social-icon">🌐</span>
+                                Continue with Google
+                            </button>
+                            <button class="social-btn microsoft-btn" id="microsoftSignIn">
+                                <span class="social-icon">🪟</span>
+                                Continue with Microsoft
+                            </button>
+                            <button class="social-btn apple-btn" id="appleSignIn">
+                                <span class="social-icon">📱</span>
+                                Continue with Apple
+                            </button>
+                        </div>
+                        <div class="divider">
+                            <span>or</span>
+                        </div>
+                    </div>
+                    
+                    <h3>Sign In with Co Operator Account</h3>
+                    <form id="landingSignInForm">
+                        <div class="form-group">
+                            <label for="landingUsername">👤 Username: </label>
+                            <input id="landingUsername" type="text" placeholder="Enter your username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="landingPassword">🔒 Password: </label>
+                            <input id="landingPassword" type="password" placeholder="Enter your password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="landingAge">🎂 Age: </label>
+                            <input id="landingAge" type="number" min="1" placeholder="Enter your age" required>
+                        </div>
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="rememberMe"> Remember me
+                            </label>
+                        </div>
+                        <button type="submit" id="landingSubmit" class="signin-button">🚀 Sign In & Start Creating</button>
+                    </form>
+                    
+                    <div class="signin-footer">
+                        <p>By signing in, you agree to our terms of service and privacy policy.</p>
+                        <p class="signin-note">🔐 Your information is secure and will never be shared.</p>
+                    </div>
+                </div>
+                <p id="landingGreeting"></p>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Main Application - Hidden Initially -->
+    <div id="mainApp" style="display: none;">
+        <nav id="mainNav">
+            <div class="nav-group nav-primary">
+                <button id="homeNav" class="nav-btn home-btn">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-text">Home</span>
+                </button>
+                <button id="storiesNav" class="nav-btn stories-btn">
+                    <span class="nav-icon">📚</span>
+                    <span class="nav-text">Stories</span>
+                </button>
+                <button id="writingNav" class="nav-btn writing-btn">
+                    <span class="nav-icon">✍️</span>
+                    <span class="nav-text">Writing</span>
+                </button>
+            </div>
+            <div class="nav-group nav-more-group">
+                <button id="moreMenuBtn" class="nav-btn more-btn">
+                    <span class="nav-icon">⋯</span>
+                    <span class="nav-text">More</span>
+                </button>
+                <div id="moreMenuDropdown" class="more-menu">
+                    <button id="aboutNav" class="nav-btn about-btn">
+                        <span class="nav-icon">ℹ️</span>
+                        <span class="nav-text">About</span>
+                    </button>
+                    <button id="encyclopediaNav" class="nav-btn encyclopedia-btn">
+                        <span class="nav-icon">📖</span>
+                        <span class="nav-text">Encyclopedia</span>
+                    </button>
+                    <button id="chatNav" class="nav-btn chat-btn">
+                        <span class="nav-icon">🤖</span>
+                        <span class="nav-text">AI Chat</span>
+                    </button>
+                </div>
+            </div>
+            <button id="signOutBtn" class="nav-btn signout-btn">
+                <span class="nav-icon">🚪</span>
+                <span class="nav-text">Sign Out</span>
+            </button>
+        </nav>
+    
+        <main id="appMain">
+            <section id="home" class="page-section">
+                <header class="home-head">
+                    <h1>🏠 Welcome to Co Operator</h1>
+                    <p class="home-subtitle">Where Imagination Meets Innovation</p>
+                </header>
+
+                <div class="home-content">
+                    <div class="welcome-message">
+                        <h2>Your Gateway to Creative Storytelling</h2>
+                        <p>Step into a world where stories come alive through the vision of a remarkable 10-year-old entrepreneur. Co Operator represents the perfect blend of youthful imagination and professional storytelling excellence. Founded in 2026 by Sanyaolu Eriiyanuoluwa Gideon Olanrewaju (EGO), our platform has become a sanctuary for writers, readers, and dreamers alike.</p>
+
+                        <p>At Co Operator, we believe that everyone has a story worth telling. Whether you're a seasoned author looking for a creative space or a young writer taking your first steps into the world of narrative, our platform provides the tools, community, and inspiration you need to bring your ideas to life.</p>
+                    </div>
+
+                    <div class="featured-highlights">
+                        <h2>✨ What Makes Co Operator Special</h2>
+
+                        <div class="highlight-grid">
+                            <div class="highlight-card">
+                                <h3>🌟 Young Visionary Leadership</h3>
+                                <p>Founded by a 10-year-old innovator, Co Operator brings fresh perspectives to traditional storytelling. Our founder's youthful energy and boundless creativity infuse every aspect of our platform, creating an environment where imagination knows no bounds.</p>
+                            </div>
+
+                            <div class="highlight-card">
+                                <h3>🎨 Customization Freedom</h3>
+                                <p>Express yourself with our comprehensive customization tools. Choose from multiple fonts, colors, and styles to create a writing environment that perfectly matches your creative vision and personal aesthetic.</p>
+                            </div>
+
+                            <div class="highlight-card">
+                                <h3>📚 Diverse Story Collection</h3>
+                                <p>Explore a rich tapestry of narratives spanning genres, cultures, and perspectives. From heartwarming tales to thrilling adventures, our curated collection offers something for every reader and writer.</p>
+                            </div>
+
+                            <div class="highlight-card">
+                                <h3>🤝 Supportive Community</h3>
+                                <p>Join a welcoming community of storytellers who encourage and inspire each other. Share feedback, collaborate on projects, and grow together in an environment built on mutual respect and creativity.</p>
+                            </div>
+
+                            <div class="highlight-card">
+                                <h3>🔒 Age-Appropriate Access</h3>
+                                <p>We prioritize safety and appropriateness, ensuring our platform remains suitable for users aged 10 and above. Our age verification system helps maintain a positive, family-friendly environment for all members.</p>
+                            </div>
+
+                            <div class="highlight-card">
+                                <h3>📝 Professional Writing Tools</h3>
+                                <p>Access powerful yet user-friendly writing tools designed to enhance your creative process. From word count tracking to file uploads, we provide everything you need to craft compelling narratives.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="join-team">
+                        <h2>🤝 Join the Team</h2>
+                        <p>Are you passionate about storytelling? Do you have a creative vision that could shape the future of digital narratives? Co Operator is always looking for talented individuals who share our mission of fostering creativity and building community.</p>
+
+                        <div class="team-opportunities">
+                            <div class="opportunity-card">
+                                <h3>✍️ Content Creators</h3>
+                                <p>Share your stories and help build our community library. Whether you're a seasoned writer or just starting out, your voice matters.</p>
+                            </div>
+
+                            <div class="opportunity-card">
+                                <h3>🎨 Community Moderators</h3>
+                                <p>Help maintain a positive, safe environment for our young storytellers. Ensure age-appropriate content and foster respectful interactions.</p>
+                            </div>
+
+                            <div class="opportunity-card">
+                                <h3>💡 Beta Testers</h3>
+                                <p>Try new features before they're released and provide feedback to help us improve the platform for all users.</p>
+                            </div>
+
+                            <div class="opportunity-card">
+                                <h3>🌟 Ambassadors</h3>
+                                <p>Represent Co Operator in the wider creative community. Share our story and help grow our network of storytellers.</p>
+                            </div>
+                        </div>
+
+                        <div class="application-cta">
+                            <h3>Ready to Make an Impact?</h3>
+                            <p>If you're interested in joining our team, we'd love to hear from you! Send us a message through our contact form with your background, interests, and how you can contribute to our mission.</p>
+<button class="apply-btn" onclick="showPage('about', this)">📧 Contact Us</button>
+                        </div>
+                    </div>
+
+                    <div class="mission-statement">
+                        <h2>🎯 Our Mission</h2>
+                        <p>At Co Operator, our mission extends beyond simply providing a platform for storytelling. We are committed to:</p>
+                        <ul>
+                            <li><strong>Fostering Creativity:</strong> Creating an environment where imagination can flourish without limitations</li>
+                            <li><strong>Building Community:</strong> Connecting storytellers from diverse backgrounds and experiences</li>
+                            <li><strong>Promoting Literacy:</strong> Encouraging reading and writing skills through engaging, accessible content</li>
+                            <li><strong>Ensuring Safety:</strong> Maintaining age-appropriate content and interactions for all users</li>
+                            <li><strong>Inspiring Innovation:</strong> Showcasing how young minds can drive creative industries forward</li>
+                        </ul>
+                    </div>
+
+                    <div class="call-to-action">
+                        <h2>🎉 Ready to Join Our Story?</h2>
+                        <p>The world of Co Operator awaits you. Whether you dream of writing the next great novel, discovering new authors, or simply enjoying a good story, your journey starts here. Our platform is more than just a website—it's a community, a creative space, and a celebration of storytelling in all its forms.</p>
+                        <p>Navigate using the menu above to explore different sections of our platform. Each area is designed to enhance your creative experience and connect you with fellow story enthusiasts. Welcome to Co Operator—where every story matters, and every voice deserves to be heard.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="news" class="page-section" style="display: none;">
+                <h2>📰 Co Operator News</h2>
+                <p>Discover the latest updates from Co Operator, new feature launches, creative writing challenges, and community highlights.</p>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <h3>New AI Story Expansion</h3>
+                        <p>Co Operator now includes an AI assistant that can lengthen your story, convert it into anime style, and help you write across multiple chapters.</p>
+                    </article>
+                    <article class="news-card">
+                        <h3>Encyclopedia Search Added</h3>
+                        <p>Quick access to Wikipedia and Britannica is available in the Encyclopedia tab for fast research while you write.</p>
+                    </article>
+                    <article class="news-card">
+                        <h3>Upgraded Writer Settings</h3>
+                        <p>Settings now include file import, document cleaning, AI mode selection, and personalized writing preferences.</p>
+                    </article>
+                    <article class="news-card">
+                        <h3>Expanded Story Library</h3>
+                        <p>Explore 50 epic stories with chapter metadata and entrenched anime-inspired worlds. Each story is designed as a long-form saga.</p>
+                    </article>
+                </div>
+            </section>
+            <section id="encyclopedia" class="page-section" style="display: none;">
+                <h2>📖 Encyclopedia</h2>
+                <p>Search major knowledge sources directly from Co Operator.</p>
+                <div class="encyclopedia-search-box">
+                    <input id="encyclopediaQuery" type="text" placeholder="Search Wikipedia or Britannica...">
+                    <button id="encyclopediaSearchBtn" class="toolbar-btn">Search</button>
+                </div>
+                <div class="encyclopedia-links">
+                    <a href="https://en.wikipedia.org/wiki/Main_Page" target="_blank" class="encyclopedia-card">Wikipedia</a>
+                    <a href="https://www.britannica.com/" target="_blank" class="encyclopedia-card">Britannica</a>
+                </div>
+                <div class="encyclopedia-guidance">
+                    <p>Type a topic and open both encyclopedias for instant research.</p>
+                </div>
+            </section>
+            <section id="settings" class="page-section" style="display: none;">
+                <h2>⚙️ Settings</h2>
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3>Document Import</h3>
+                        <p>Upload a text file and import it cleanly into the current writing page.</p>
+                        <input id="fileUploadInput" type="file" accept=".txt" class="settings-input">
+                        <button id="importDocumentBtn" class="toolbar-btn">Import to Current Page</button>
+                    </div>
+                    <div class="settings-card">
+                        <h3>Writing Preferences</h3>
+                        <label><input id="autoSaveToggle" type="checkbox"> Auto-save documents</label>
+                        <label><input id="darkModeToggle" type="checkbox"> Dark mode</label>
+                        <label><input id="cleanImportToggle" type="checkbox" checked> Clean imported text</label>
+                    </div>
+                    <div class="settings-card">
+                        <h3>AI Options</h3>
+                        <p>Choose the AI assistant style that suits your writing flow.</p>
+                        <select id="aiStyleSelect" class="settings-select">
+                            <option value="chatgpt">ChatGPT</option>
+                            <option value="grok">Grok</option>
+                            <option value="perplexity">Perplexity</option>
+                            <option value="gemini">Gemini</option>
+                            <option value="deepsearch">DeepSearch</option>
+                        </select>
+                    </div>
+                    <div class="settings-card">
+                        <h3>Theme & UI</h3>
+                        <label for="themeSelect">App theme</label>
+                        <select id="themeSelect" class="settings-select">
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                            <option value="sepia">Sepia</option>
+                            <option value="twilight">Twilight</option>
+                            <option value="forest">Forest</option>
+                        </select>
+                        <label for="accentColorPicker">Accent color</label>
+                        <input id="accentColorPicker" type="color" class="settings-input" value="#4CAF50">
+                    </div>
+                </div>
+            </section>
+            <section id="aiChat" class="page-section" style="display: none;">
+                <h2>🤖 AI Chat</h2>
+                <p>Ask the Co Operator AI for writing help, story expansion, anime conversion, or general research.</p>
+                <div class="chat-panel">
+                    <div class="chat-controls">
+                        <select id="chatModelSelect" class="settings-select">
+                            <option value="chatgpt">ChatGPT</option>
+                            <option value="grok">Grok</option>
+                            <option value="perplexity">Perplexity</option>
+                            <option value="gemini">Gemini</option>
+                            <option value="deepsearch">DeepSearch</option>
+                        </select>
+                        <input id="wordGoalInput" type="number" class="settings-input" placeholder="Target words" min="100" value="1000">
+                        <button id="chatSendBtn" class="toolbar-btn">Ask</button>
+                        <button id="expandStoryBtn" class="toolbar-btn">Lengthen Story</button>
+                        <button id="animeStoryBtn" class="toolbar-btn">Anime Transform</button>
+                    </div>
+                    <textarea id="chatInput" class="chat-input" placeholder="Ask for story help, anime ideas, or AI transformation..."></textarea>
+                    <div id="chatOutput" class="chat-output"></div>
+                </div>
+            </section>
+            <section id="about" class="page-section" style="display: none;">
+                <header class="section-header">
+                    <h1>Co Operator</h1>
+                    <p class="tagline">Where Stories Come to Life</p>
+                    <div class="company-info">
+                        <span class="founded">Founded 2026</span>
+                        <span class="founder">By Sanyaolu Eriiyanuoluwa Gideon Olanrewaju (EGO)</span>
+                    </div>
+                </header>
+                <h2>About Us</h2>
+                <p>Welcome to Co Operator, a story company founded by a 10-year-old visionary, Sanyaolu Eriiyanuoluwa Gideon Olanrewaju (EGO). Established in 2026, our company specializes in creating engaging stories and narratives that inspire imagination and creativity.</p>
+                <p>As a young entrepreneur, EGO brings fresh perspectives and innovative ideas to storytelling. Our mission is to craft compelling tales that resonate with audiences of all ages, fostering a love for reading and storytelling in the digital age.</p>
+                <p>We value inclusivity and safety, which is why we have implemented age-appropriate access controls to ensure our platform is suitable for users aged 10 and above, aligning with our founder's age and vision.</p>
+                <p>We have a simple idea: to create a space where stories could come to life in the most imaginative ways. Our passion for storytelling and creativity led to the birth of Co Operator, a company that celebrates the power of narratives and the joy of sharing stories with the world.</p>
+                <p>This all began with a 5 year old EGO who loved to write stories. No-one knows who he got it from maybe his Paternal grandfather or his father, but his father was happy to have a future author in his house.</p>
+
+                <div class="company-story">
+                    <h3>The Birth of a Dream</h3>
+                    <p>At just 5 years old, EGO discovered the magic of storytelling. While other children played with toys, young Gideon spent hours crafting tales of adventure, mystery, and wonder. His imagination knew no bounds, and his stories began to fill notebooks that his father proudly preserved.</p>
+                    <p>As EGO grew, so did his passion. By age 8, he had written dozens of stories, each one more elaborate than the last. He dreamed of a world where everyone could share their stories freely, where creativity wasn't limited by age or experience. This vision became the foundation of what would become Co Operator.</p>
+                    <p>In 2026, at the tender age of 10, EGO took the bold step of founding his own company. With determination beyond his years, he assembled a team of like-minded individuals who shared his belief in the power of storytelling. Together, they built a platform that would revolutionize how stories are created, shared, and experienced.</p>
+
+                    <h3>Our Mission and Vision</h3>
+                    <p>Co Operator exists to democratize storytelling. We believe that every person, regardless of age, background, or experience, has a story worth telling. Our mission is to provide the tools, platform, and community that empower storytellers worldwide.</p>
+                    <p>Our vision is a world where imagination thrives, where stories connect people across cultures and generations, and where creativity is celebrated as the most valuable human endeavor. We strive to create a safe, inclusive space where voices that might otherwise go unheard can find their audience.</p>
+
+                    <h3>The Co Operator Difference</h3>
+                    <p>What sets Co Operator apart is our unique perspective. Founded by a child for storytellers of all ages, we understand the pure joy of creation. We reject the notion that great stories can only come from established authors or professionals. Instead, we celebrate the raw creativity that exists in every heart.</p>
+                    <p>Our platform features intuitive tools designed with both beginners and experienced writers in mind. From simple story starters to advanced narrative structures, we provide everything needed to bring ideas to life. And because we believe in accessibility, all our premium features are completely free.</p>
+
+                    <h3>Community First</h3>
+                    <p>At Co Operator, community is everything. We've built more than just a writing platform; we've created a family of storytellers. Our users range from children discovering their voice for the first time to seasoned authors exploring new genres.</p>
+                    <p>We host regular writing challenges, story circles, and creative workshops. Our community guidelines emphasize respect, encouragement, and constructive feedback. Every story published on our platform receives the attention and appreciation it deserves.</p>
+
+                    <h3>Innovation Through Youth</h3>
+                    <p>Being founded by a 10-year-old brings unique advantages to Co Operator. We see the world through fresh eyes, unburdened by industry conventions or outdated practices. This youthful perspective drives our innovation:</p>
+                    <ul>
+                        <li><strong>Intuitive Design:</strong> Interfaces that feel natural, even to those new to technology</li>
+                        <li><strong>Gamified Learning:</strong> Writing challenges and achievements that make skill-building fun</li>
+                        <li><strong>Inclusive Features:</strong> Tools designed with accessibility and diverse needs in mind</li>
+                        <li><strong>Future-Focused:</strong> Always anticipating how technology can enhance storytelling</li>
+                    </ul>
+
+                    <h3>Our Growth Story</h3>
+                    <p>From a single child's dream to a thriving creative community, Co Operator's journey has been nothing short of remarkable. In our first year, we welcomed thousands of writers from around the world. Our story archive grew exponentially as users discovered the joy of sharing their narratives.</p>
+                    <p>We've expanded our platform to include comic creation tools, allowing stories to come alive in visual form. Our writing workshops have helped countless individuals overcome writer's block and develop their skills. And through it all, our commitment to free, accessible creativity has never wavered.</p>
+
+                    <h3>Looking to the Future</h3>
+                    <p>As Co Operator continues to grow, our vision expands. We plan to introduce collaborative storytelling features, international language support, and partnerships with schools and libraries worldwide. Our goal is to make storytelling a universal language that connects humanity.</p>
+                    <p>The future of Co Operator is bright, driven by the same childlike wonder that started it all. We invite you to join us on this journey of imagination and creativity.</p>
+                </div>
+
+                <div class="achieved-goals-section">
+                    <h2>🎯 Our Achieved Goals</h2>
+                    <div class="goals-grid">
+                        <div class="goal-card">
+                            <div class="goal-icon">🛡️</div>
+                            <h3>Safe Environment Created</h3>
+                            <p>We successfully created a safe, welcoming environment for both professional and new authors to publish their stories completely free of charge.</p>
+                        </div>
+
+                        <div class="goal-card">
+                            <div class="goal-icon">📣</div>
+                            <h3>Voice Amplification</h3>
+                            <p>Started with a simple vision of giving voices a speaker, now expanded into a powerful purpose of connecting storytellers worldwide.</p>
+                        </div>
+
+                        <div class="goal-card">
+                            <div class="goal-icon">🎭</div>
+                            <h3>Story Transformation</h3>
+                            <p>Achieved creating a platform where plain stories can transform into engaging comics, bringing narratives to life in new formats.</p>
+                        </div>
+
+                        <div class="goal-card">
+                            <div class="goal-icon">🌟</div>
+                            <h3>Community Building</h3>
+                            <p>Built a thriving community of young writers, readers, and creative minds who share a passion for storytelling.</p>
+                        </div>
+
+                        <div class="goal-card">
+                            <div class="goal-icon">🎨</div>
+                            <h3>Creative Tools</h3>
+                            <p>Developed comprehensive writing tools including customizable fonts, colors, and styles to enhance the creative process.</p>
+                        </div>
+
+                        <div class="goal-card">
+                            <div class="goal-icon">📚</div>
+                            <h3>Story Archive</h3>
+                            <p>Established a growing collection of diverse stories from adventure tales to heartwarming narratives, all crafted by our community.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-section">
+                    <h2>👥 Meet Our Team</h2>
+                    <p>Co Operator is powered by a diverse team of creative professionals who share our founder's vision. While EGO leads with youthful innovation, our team brings expertise in technology, design, and community management.</p>
+                    <p>We're always looking for passionate individuals who believe in the power of stories. If you're interested in joining our mission, reach out through our contact page.</p>
+                </div>
+
+                <div class="contact-info">
+                    <h2>📞 Get In Touch</h2>
+                    <p>Have a story to share? Questions about our platform? Want to collaborate? We'd love to hear from you!</p>
+                    <p>Email: stories@cooperator.com<br>
+                    Website: www.cooperator.com<br>
+                    Founded: 2026 by Sanyaolu Eriiyanuoluwa Gideon Olanrewaju (EGO)</p>
+                </div>
+            </section>
+            
+            <section id="stories" class="page-section" style="display: none;">
+                <h2>📚 Our Story Collection</h2>
+                <p>Explore our curated collection of captivating stories created by talented writers from around the world. Each story is crafted with creativity and imagination to inspire and entertain.</p>
+                <p>Here you'll find a diverse range of narratives, from adventure tales to heartwarming stories, all waiting to transport you to new worlds and experiences.</p>
+                <div id="storyList"></div>
+                <div id="storyDetail" class="story-detail-panel"></div>
+            </section>
+            
+            <section id="addStory" class="page-section" style="display: none;">
+                <div class="writing-portal-header">
+                    <h1>✍️ Creative Writing Studio</h1>
+                    <p class="portal-tagline">"Every great story begins with a single word..."</p>
+                    <div class="inspiration-quote">
+                        <blockquote>"The scariest moment is always just before you start." <cite>- Stephen King</cite></blockquote>
+                    </div>
+                </div>
+
+                <div class="portal-welcome">
+                    <div class="welcome-card">
+                        <h2>🎭 Welcome to Your Creative Space</h2>
+                        <p>Transform your ideas into captivating stories! Our writing studio provides everything you need to craft narratives that inspire, entertain, and connect with readers worldwide.</p>
+                        <div class="portal-features">
+                            <div class="portal-feature">
+                                <span class="feature-icon">🎨</span>
+                                <span>Customizable Environment</span>
+                            </div>
+                            <div class="portal-feature">
+                                <span class="feature-icon">📊</span>
+                                <span>Word Count Tracking</span>
+                            </div>
+                            <div class="portal-feature">
+                                <span class="feature-icon">📁</span>
+                                <span>File Upload Support</span>
+                            </div>
+                            <div class="portal-feature">
+                                <span class="feature-icon">🌟</span>
+                                <span>Creative Freedom</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="writing-workspace">
+                    <div class="main-writing-area">
+                        <div class="word-processor-container">
+                            <div class="word-processor-header">
+                                <h2>📝 Word Processor</h2>
+                                <p>Create your story like a professional author. Each page holds approximately 500 words.</p>
+                                <div class="writing-reminder">
+                                    <p><strong>Remember:</strong> The founder never finished his stories - but you can! Keep writing and complete your masterpiece.</p>
+                                </div>
+                            </div>
+
+                            <div class="word-processor-toolbar">
+                                <div class="toolbar-section">
+                                    <button id="newDocument" class="toolbar-btn" title="New Document">
+                                        <span class="toolbar-icon">📄</span>
+                                        New
+                                    </button>
+                                    <button id="saveDocument" class="toolbar-btn" title="Save">
+                                        <span class="toolbar-icon">💾</span>
+                                        Save
+                                    </button>
+                                    <button id="exportDocument" class="toolbar-btn" title="Export">
+                                        <span class="toolbar-icon">📤</span>
+                                        Export
+                                    </button>
+                                    <button id="openDictionary" class="toolbar-btn" title="Dictionary (Ctrl+D)">
+                                        <span class="toolbar-icon">📖</span>
+                                        Dictionary
+                                    </button>
+                                </div>
+
+                                <div class="toolbar-section">
+                                    <select id="fontFamilySelect" class="toolbar-select">
+                                    <option value="Arial, sans-serif">Arial</option>
+                                    <option value="'Helvetica Neue', Helvetica, Arial, sans-serif">Helvetica</option>
+                                    <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Segoe UI</option>
+                                    <option value="Verdana, Geneva, sans-serif">Verdana</option>
+                                    <option value="'Trebuchet MS', sans-serif">Trebuchet</option>
+                                    <option value="'Georgia', serif">Georgia</option>
+                                    <option value="'Times New Roman', serif">Times New Roman</option>
+                                    <option value="'Palatino Linotype', 'Book Antiqua', Palatino, serif">Palatino</option>
+                                    <option value="'Garamond', serif">Garamond</option>
+                                    <option value="'Courier New', monospace">Courier New</option>
+                                    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
+                                    <option value="'Comic Sans MS', cursive">Comic Sans</option>
+                                    <option value="'Brush Script MT', cursive">Brush Script</option>
+                                    <option value="'Impact', sans-serif">Impact</option>
+                                    <option value="'Century Gothic', sans-serif">Century Gothic</option>
+                                    <option value="'Futura', sans-serif">Futura</option>
+                                    <option value="'Calibri', sans-serif">Calibri</option>
+                                    <option value="'Candara', sans-serif">Candara</option>
+                                    <option value="'Comfortaa', cursive">Comfortaa</option>
+                                </select>
+                                <select id="fontSizeSelect" class="toolbar-select">
+                                    <option value="12px">12</option>
+                                    <option value="14px">14</option>
+                                    <option value="16px" selected>16</option>
+                                    <option value="18px">18</option>
+                                    <option value="20px">20</option>
+                                    <option value="22px">22</option>
+                                    <option value="24px">24</option>
+                                    <option value="26px">26</option>
+                                    <option value="28px">28</option>
+                                    <option value="32px">32</option>
+                                    <option value="36px">36</option>
+                                    <option value="40px">40</option>
+                                    <option value="44px">44</option>
+                                    <option value="48px">48</option>
+                                </select>
+                                <input id="fontColorPicker" type="color" value="#000000" class="toolbar-color" title="Text Color">
+                                </div>
+
+                                <div class="toolbar-section">
+                                    <button id="boldBtn" class="toolbar-btn format-btn" title="Bold">
+                                        <span class="toolbar-icon">𝐁</span>
+                                    </button>
+                                    <button id="italicBtn" class="toolbar-btn format-btn" title="Italic">
+                                        <span class="toolbar-icon">𝐼</span>
+                                    </button>
+                                    <button id="underlineBtn" class="toolbar-btn format-btn" title="Underline">
+                                        <span class="toolbar-icon">U̲</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="document-container">
+                                <div class="page-navigation">
+                                    <button id="prevPage" class="nav-btn" disabled>
+                                        <span class="nav-icon">⬅️</span>
+                                        Previous
+                                    </button>
+                                    <span id="pageIndicator" class="page-indicator">Page 1 of 1</span>
+                                    <button id="nextPage" class="nav-btn" disabled>
+                                        Next
+                                        <span class="nav-icon">➡️</span>
+                                    </button>
+                                </div>
+
+                                <div class="document-pages">
+                                    <div class="page active" id="page1">
+                                        <div class="page-header">
+                                            <input id="documentTitle" type="text" class="page-title" placeholder="Untitled Document" value="">
+                                        </div>
+                                        <div class="page-content">
+                                            <div id="pageContent1" class="page-text" contenteditable="true" data-placeholder="Start writing your story here..."></div>
+                                        </div>
+                                        <div class="page-footer">
+                                            <span class="page-number">1</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="document-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Words:</span>
+                                        <span id="totalWords" class="stat-value">0</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Pages:</span>
+                                        <span id="totalPages" class="stat-value">1</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Characters:</span>
+                                        <span id="totalChars" class="stat-value">0</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="document-actions">
+                                <button id="addPage" class="action-btn secondary">
+                                    <span class="action-icon">➕</span>
+                                    Add New Page
+                                </button>
+                                <button id="publishDocument" class="action-btn primary">
+                                    <span class="action-icon">🚀</span>
+                                    Publish Story
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dictionary Modal -->
+                    <div id="dictionaryModal" class="dictionary-modal">
+                        <div class="dictionary-overlay" id="dictionaryOverlay"></div>
+                        <div class="dictionary-panel">
+                            <div class="dictionary-header">
+                                <h3>📖 Dictionary</h3>
+                                <button id="closeDictionary" class="close-btn" title="Close Dictionary">×</button>
+                            </div>
+
+                            <div class="dictionary-search">
+                                <input type="text" id="dictionarySearch" class="dictionary-input" placeholder="Enter a word to look up..." autocomplete="off">
+                                <button id="searchWord" class="search-btn">🔍 Search</button>
+                            </div>
+
+                            <div class="dictionary-results">
+                                <div id="wordDefinition" class="word-definition">
+                                    <div class="no-results">
+                                        <p>Enter a word above to see its definition, synonyms, and more!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="dictionary-actions">
+                                <button id="addToStory" class="dict-action-btn" disabled>
+                                    <span class="action-icon">➕</span>
+                                    Add to Story
+                                </button>
+                                <button id="copyWord" class="dict-action-btn" disabled>
+                                    <span class="action-icon">📋</span>
+                                    Copy Word
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portal-footer">
+                    <div class="encouragement">
+                        <h3>🌟 Remember</h3>
+                        <p>"You have a story that only you can tell. Trust your voice and let your creativity shine!"</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Co Operator. All rights reserved.</p>
+    </footer>
+
+    <script src="Index.js"></script>
+</body>
+</html>  
